@@ -8,6 +8,7 @@ public class Cocinero implements Runnable {
 		this.pasos = pasos;
 		this.platos= platos;
 	}
+	
 	//Contener tarea a realizar por el hilo
 	@Override
 	public void run() {

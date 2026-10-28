@@ -24,6 +24,7 @@ public class BrigadaCocina {
 		try {
 			Thread.sleep(1200);
 			
+			
 			//hace q espere a q los cocineros terminen
 			ana.join();
 			luis.join();
