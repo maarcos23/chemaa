@@ -10,7 +10,6 @@ public class Cocinero implements Runnable{
 		this.pasos=pasos;
 	}
 	
-	
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
