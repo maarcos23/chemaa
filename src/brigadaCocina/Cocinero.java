@@ -1,29 +1,32 @@
 package brigadaCocina;
 
-public class Cocinero implements Runnable {
+public class Cocinero implements Runnable{
 
-	private String platos;
+	private String plato;
 	private int pasos;
-	public Cocinero(String platos, int pasos) {
-		this.pasos = pasos;
-		this.platos= platos;
+	
+	public Cocinero(String plato, int pasos) {
+		this.plato=plato;
+		this.pasos=pasos;
 	}
 	
-	//Contener tarea a realizar por el hilo
+	
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		
-		String nombre_cocinero = Thread.currentThread().getName();
-		for(int i = 1; i <= pasos; i++) {
-			System.out.println(nombre_cocinero+": paso "+ i+ "/"+ pasos + " de "+ platos);
-			try {
-				Thread.sleep(1000);
+		String nombre = Thread.currentThread().getName();
+		try {
+		for (int i =0; i< pasos; i++) {
+			System.out.println(nombre + ": paso "+ (i+1)+"/"+pasos+" de "+ plato);
+			
+				Thread.sleep(500);
+		}
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
-	}
-
+		System.out.println(nombre+ " plato terminado "+ plato);
+		
+	}		
 }
+
