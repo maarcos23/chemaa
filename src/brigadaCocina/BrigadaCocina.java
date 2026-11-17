@@ -1,41 +1,32 @@
 package brigadaCocina;
 
 public class BrigadaCocina {
-
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println("Abre la cocina el hilo: "+ Thread.currentThread().getName());
+	
+	public static void main(String[]args) {
 		
-		//paso 2 Creamos los hilos
+		System.out.println("Abre la cocina el hilo: "+Thread.currentThread().getName());
+		
 		Thread ana = new Thread(new Cocinero("paella", 4), "Ana");
 		Thread luis = new Thread(new Cocinero("Gazpacho", 3), "Luis");
-		Thread marta = new Thread(new Cocinero("tarta", 5), "Marta");
+		Thread marta = new Thread(new Cocinero("Tarta", 5),"Marta");	
 		
-		ana.setPriority(Thread.MAX_PRIORITY);
-		luis.setPriority(Thread.MAX_PRIORITY);
-		
-		//lanzar hilos
+		System.out.println("Estado de Ana antes del start: "+ ana.getState());
 		ana.start();
 		luis.start();
 		marta.start();
-	
-		//la jefa de cocina esta esperando
+		
 		try {
 			Thread.sleep(1200);
-			
-			
-			//hace q espere a q los cocineros terminen
+			System.out.println("Estado de Ana durante el trabajo: "+ ana.getState());
 			ana.join();
 			luis.join();
 			marta.join();
+			System.out.println("Estado de Ana al final: "+ana.getState());
+			System.out.println("La jefa cierra la cocina.");
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("El estado de Ana al final ha sido: "+ ana.getState());
-		System.out.println("El estado de Luis al final ha sido: "+ luis.getState());
-		System.out.println("El estado de Marta al final ha sido: "+ marta.getState());
 	}
-
 }
