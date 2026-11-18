@@ -33,7 +33,7 @@ public class Pantalla implements Runnable{
 			int s = panel.getSalida();
 			control.terminarLectura();
 			
-			String horaSalida = panel.hora(s);
+			String horaSalida = Panel.hora(s);
 			if (s != (Panel.PREVISTA + r)) {
 				incoherentes++;
 				System.out.println(hilo+" ¡INCOHERENTE!: retraso "+r+
