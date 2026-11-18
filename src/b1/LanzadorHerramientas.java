@@ -13,7 +13,7 @@ public class LanzadorHerramientas {
         System.out.println("1. Bloc de notas");
         System.out.println("2. Calculadora");
         System.out.println("3. Listar C:\\Windows");
-        System.out.println("4. Programa inexistente4");
+        System.out.println("4. Programa inexistente");
         System.out.print("Elige una opción: ");
 
         String opcion = sc.nextLine().trim();
